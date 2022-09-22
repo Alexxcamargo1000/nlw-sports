@@ -59,18 +59,19 @@ export function Game() {
   }, [])
 
   return (
-    <div className="max-w-[1344px] mx-auto flex flex-col my-20">
+    <div className=" p-4 max-w-[1344px] mx-auto flex flex-col my-20">
       <div className="mb-10 text-white">
-        <button onClick={navigationToBack}>
+        <button onClick={navigationToBack} className="flex items-center justify-center gap-4">
           <ArrowLeft size={24}/>
+          Voltar
         </button>
       </div>
-      <div className="w-full flex items-center">
-        <div className="w-80 h-80">
+      <div className="w-full flex flex-col gap-6 lg:flex-row items-center">
+        <div className="h-80 w-full md:w-[80%] lg:w-80">
           {game.bannerUrl 
           ? <img 
               src={game.bannerUrl}  
-              className="rounded-[50%] w-80 h-80 object-cover"
+              className="rounded-md lg:rounded-[50%] w-full h-80 object-cover"
             /> 
           : <Loading size={64}/> }
         </div>
@@ -79,9 +80,9 @@ export function Game() {
       </div>
 
       <div className="mt-20">
-        <h2 className="text-4xl text-zinc-100 font-semibold" >Conecte-se e comece a jogar!</h2>
+        <h2 className="text-4xl text-zinc-100 font-semibold text-center md:text-left" >Conecte-se e comece a jogar!</h2>
         
-        <div className="mt-5 grid grid-cols-5 gap-4">
+        <div className="mt-8 flex gap-4 flex-wrap justify-center md:justify-start ">
           {ads.length > 0 
           ? ads.map(ad => <AdsCard key={ad.id} info={ad} discord={discord} ConnectToDiscord={() => handleConnectDiscord( ad.id)}/> )
           : (

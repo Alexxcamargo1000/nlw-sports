@@ -30,14 +30,14 @@ export function Home(){
 
   return (
     <div 
-    className="max-w-[1344px] mx-auto flex flex-col items-center my-20" 
+    className="max-w-[1344px] px-4 mx-auto flex flex-col items-center my-20" 
     >
       <img src={logoImage} alt="" />
-      <h1 className="text-6xl text-white font-black mt-20">
+      <h1 className="text-4xl md:text-6xl text-white font-black mt-20">
         Seu <span className="bg-nlw-gradient bg-clip-text text-transparent">duo</span> está aqui.
       </h1>
 
-      <div className="grid grid-cols-6 gap-6  mt-16">
+      <div className="grid grid-cols-1 gap-6 mt-16 lg:grid-cols-6 md:grid-cols-4 sm:grid-cols-2 ">
       
         { games && games.map((game) => {
           return (

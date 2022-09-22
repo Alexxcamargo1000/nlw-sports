@@ -1,8 +1,6 @@
 import {CheckCircle, GameController, X} from "phosphor-react"
 import { AdsProps } from "../pages/Game";
 import * as Dialog from "@radix-ui/react-dialog";
-import axios from "axios";
-import { useEffect, useState } from "react";
 import { Loading } from "./Loading";
 
 interface AdsCardProps  {
@@ -16,7 +14,7 @@ export function AdsCard({ info, ConnectToDiscord, discord }: AdsCardProps ) {
 
   
   return (
-    <div className=" p-7 bg-[#2A2634]  rounded-lg text-white flex flex-col">
+    <div className=" p-7 bg-[#2A2634]  rounded-lg text-white flex flex-col min-w-[300px]">
       <div className="flex flex-col">
         <span className="text-zinc-400">Nome</span>
         <strong>{info.name}</strong>
@@ -44,7 +42,7 @@ export function AdsCard({ info, ConnectToDiscord, discord }: AdsCardProps ) {
 
         <Dialog.Portal>
           <Dialog.Overlay className="bg-black/60 inset-0 fixed" />
-          <Dialog.Content className="flex justify-center items-center flex-col fixed rounded-lg w-[480px] bg-[#2A2634] py-8 px-10 text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow-lg shadow-black/25">
+          <Dialog.Content className="flex justify-center items-center flex-col fixed rounded-lg w-[300px] md:w-[480px] bg-[#2A2634] py-8 px-10 text-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow-lg shadow-black/25">
             <Dialog.Close className="flex justify-end w-full mb-5">
               <X size={24} />
             </Dialog.Close>
