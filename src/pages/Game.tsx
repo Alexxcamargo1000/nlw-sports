@@ -5,6 +5,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { AdsCard } from "../components/AdsCard";
 import { Loading } from "../components/Loading";
 
+
 export interface AdsProps {
   hourEnd: string;
   hourStart: string;

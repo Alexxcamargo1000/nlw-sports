@@ -2,6 +2,8 @@ import {CheckCircle, GameController, X} from "phosphor-react"
 import { AdsProps } from "../pages/Game";
 import * as Dialog from "@radix-ui/react-dialog";
 import { Loading } from "./Loading";
+import { CopyToClipboard } from 'react-copy-to-clipboard'
+import { useState } from "react";
 
 interface AdsCardProps  {
   info: AdsProps,
@@ -11,6 +13,15 @@ interface AdsCardProps  {
 
 export function AdsCard({ info, ConnectToDiscord, discord }: AdsCardProps ) {
 
+  const [copied, setCopied] = useState(false);
+
+  function handleCopyDiscordToClipboard() {
+    setCopied(true)
+    //alert(`o discord do ${discord} foi copiado`)
+    setTimeout(() => {
+      setCopied(false)
+    }, 2000);
+  }
 
   
   return (
@@ -50,10 +61,12 @@ export function AdsCard({ info, ConnectToDiscord, discord }: AdsCardProps ) {
       
             <Dialog.Title className="text-3xl font-bold mb-10">Let’s play!</Dialog.Title>
 
-            <div  className="flex items-center justify-center w-full h-14 rounded-lg bg-zinc-900">
-              {discord ? discord : <Loading size={24}/>}
-            </div>
-            
+            <CopyToClipboard text={discord} onCopy={handleCopyDiscordToClipboard}>
+              <button className="flex items-center justify-center w-full h-14 rounded-lg bg-zinc-900">
+                {discord ? discord : <Loading size={24}/>}
+              </button>
+            </CopyToClipboard>
+            <span className={copied ? `transition-600 opacity-1` : 'transition-600 opacity-0' }>Copiado</span>
           </Dialog.Content>
         </Dialog.Portal>
       </Dialog.Root>
